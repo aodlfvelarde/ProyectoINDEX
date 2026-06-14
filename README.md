@@ -7,3 +7,4 @@ EscudoF
 
 OrtizG18
 - Verificacion correcta, funciona la conexion al igual que los privilegios otorgados.
+Adolfo Velarde Adm project
