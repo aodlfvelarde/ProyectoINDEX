@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chipa Guasu Productions | Soluciones Web Profesionales</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        /* Navbar */
+        nav {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2563eb;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: #f59e0b;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #1e3a5f 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(245,158,11,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: #fff;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .hero-content h1 span {
+            color: #f59e0b;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: #cbd5e1;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(37,99,235,0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37,99,235,0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.3);
+            margin-left: 1rem;
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 5%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: #64748b;
+            font-size: 1.1rem;
+        }
+
+        /* About */
+        .about {
+            background: #fff;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            color: #475569;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, #e0e7ff, #fef3c7);
+            border-radius: 20px;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        /* Services */
+        .services {
+            background: #f1f5f9;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .service-card:nth-child(2) .service-icon {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+        }
+
+        .service-card:nth-child(3) .service-icon {
+            background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+        }
+
+        .service-card h3 {
+            color: #1e293b;
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        .service-card p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        /* Team */
+        .team {
+            background: #fff;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 16px;
+            background: #f8fafc;
+            transition: transform 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            background: #f1f5f9;
+        }
+
+        .team-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 8px 20px rgba(37,99,235,0.3);
+        }
+
+        .team-card:nth-child(2) .team-avatar {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            box-shadow: 0 8px 20px rgba(245,158,11,0.3);
+        }
+
+        .team-card:nth-child(3) .team-avatar {
+            background: linear-gradient(135deg, #10b981, #059669);
+            box-shadow: 0 8px 20px rgba(16,185,129,0.3);
+        }
+
+        .team-card h3 {
+            color: #1e293b;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-card span {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 2.5rem 2rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-brand {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .footer-brand span {
+            color: #f59e0b;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Chipa <span>Guasu</span></div>
+        <div class="nav-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#equipo">Equipo</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Chipa Guasu <span>Productions</span></h1>
+            <p>Transformamos ideas en sistemas web potentes, escalables y hechos a medida para hacer crecer tu negocio.</p>
+            <div>
+                <a href="#nosotros" class="btn">Conocenos</a>
+                <a href="#servicios" class="btn btn-outline">Nuestros Servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="nosotros">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>Quienes Somos</h3>
+                    <p>Somos <strong>Chipa Guasu Productions</strong>, un equipo apasionado por la tecnologia y el desarrollo de soluciones digitales de alto impacto. Nos especializamos en el diseno, desarrollo, soporte continuo y evolucion de sistemas web orientados a resultados reales.</p>
+                    <p>Creemos que cada empresa merece una plataforma tecnologica confiable, moderna y adaptada a sus procesos. Por eso trabajamos mano a mano con nuestros clientes para entender sus necesidades y traducirlas en herramientas que impulsen su productividad y competitividad en el mercado.</p>
+                    <p>Nuestra propuesta va mas alla del codigo: ofrecemos acompanamiento estrategico, soporte tecnico especializado y actualizaciones constantes para que tu inversion tecnologica siempre este un paso adelante.</p>
+                </div>
+                <div class="about-image">
+                    &#128187;
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="servicios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestros Servicios</h2>
+                <p>Soluciones completas para tu presencia y operacion digital</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">&#127912;</div>
+                    <h3>Desarrollo Web a Medida</h3>
+                    <p>Diseñamos y construimos sistemas web personalizados con tecnologias modernas como PHP, HTML5, CSS3 y PostgreSQL. Desde paginas corporativas hasta plataformas complejas de gestion empresarial.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#128295;</div>
+                    <h3>Soporte Tecnico Especializado</h3>
+                    <p>Ofrecemos soporte continuo y resolutivo para garantizar que tus sistemas funcionen sin interrupciones. Diagnostico rapido, mantenimiento preventivo y atencion personalizada.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#128260;</div>
+                    <h3>Actualizacion y Modernizacion</h3>
+                    <p>Mantenemos tu plataforma al dia con las ultimas tendencias y mejores practicas del desarrollo web. Migraciones, mejoras de seguridad, optimizacion de rendimiento y nuevas funcionalidades.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team" id="equipo">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestro Equipo</h2>
+                <p>Talento comprometido con tu proyecto</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">CO</div>
+                    <h3>Carlos Ortiz</h3>
+                    <span>Desarrollador & Soporte tecnico</span>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">AV</div>
+                    <h3>Adolfo Valverde</h3>
+                    <span>Fundador & Desarrollador</span>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">AM</div>
+                    <h3>Aldo Marin</h3>
+                    <span>Fundador & Desarrollador</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p class="footer-brand">Chipa <span>Guasu</span> Productions</p>
+        <p>Construyendo el futuro digital, un sistema a la vez.</p>
+        <p style="margin-top: 1rem; font-size: 0.85rem;">© 2026 Chipa Guasu Productions. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
